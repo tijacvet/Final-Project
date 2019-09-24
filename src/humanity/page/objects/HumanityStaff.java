@@ -12,11 +12,11 @@ public class HumanityStaff {
 	private static final String SAVE_EMPLOYEES_BUTTON_XPATH = "//button[@id='_as_save_multiple']";
 
 	private static final String EMPLOYEES_POSSITION_XPATH = "//a[contains(text(),'";
-	//private static final String EMPLOYEES_POSSITION_XPATH_END = "')]";
-	// a[contains(text(),'Marko Mravic
+	private static final String EMPLOYEES_POSSITION_XPATH_END = "')]";
+	private static final String PUNO_IME_MENADZERA= "Petar Petrovic";
 
 	public static WebElement getEmployeesPossition(WebDriver driver) {
-		return driver.findElement(By.xpath(EMPLOYEES_POSSITION_XPATH));
+		return driver.findElement(By.xpath(EMPLOYEES_POSSITION_XPATH+PUNO_IME_MENADZERA+EMPLOYEES_POSSITION_XPATH_END));
 	}
 
 	public static void clickEmployeesPossition(WebDriver driver) {
@@ -74,5 +74,7 @@ public class HumanityStaff {
 	public static void clickSaveEmployeesButton(WebDriver driver) {
 		getSaveEmployeesButton(driver).click();
 	}
-
+	public static WebElement getPunoImeMenadzera(WebDriver driver) {
+		return driver.findElement(By.xpath(PUNO_IME_MENADZERA));
+	}
 }

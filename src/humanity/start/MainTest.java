@@ -6,6 +6,7 @@ import humanity.page.tests.HumanityLoginTests;
 public class MainTest {
 
 	public static void main(String[] args) {
+				
 		try {
 		HumanityLoginTests.testHumanity();
 		
