@@ -11,18 +11,20 @@ public class HumanityEditStaff {
 	private static final String EDIT_DETAILS_BUTTON_XPATH = "//a[contains(text(),'Edit Details')]";
 	private static final String NICKNAME_FIELD_XPATH = "//input[@id='nick_name']";
 	private static final String UPLOAD_PICTURE_BUTTON_XPATH = "//input[@id='fileupload']";
-	private static final String IMAGE_PATH = "nice lady.jpg";
-	private static final String SAVE_EMPLOYEE_BUTTON_XPATH="//button[@id='act_primary']";
+	private static final String IMAGE_PATH = "C:\\Users\\Tijana\\Desktop\\nice lady.jpg";
+	private static final String SAVE_UPDATED_EMPLOYEE_INFO_BUTTON_XPATH="//input[@name='update']";
 
-//	File picture1 = new File("nice lady.jpg");
-//	FileInputStream fis = new FileInputStream(picture1);
-
-	public static WebElement getSaveEmployeeButton(WebDriver driver) {
-		return driver.findElement(By.xpath(SAVE_EMPLOYEE_BUTTON_XPATH));
+	// set image
+	public static void sendImage(WebDriver driver) throws Exception {
+		getUploadPictureButton(driver).sendKeys(IMAGE_PATH);
+		Thread.sleep(3000);
+	}
+	public static WebElement getSaveUpdatedEmployeeInfoButton(WebDriver driver) {
+		return driver.findElement(By.xpath(SAVE_UPDATED_EMPLOYEE_INFO_BUTTON_XPATH));
 	}
 
-	public static void clickSaveEmployeeButton(WebDriver driver) {
-		getSaveEmployeeButton(driver).click();
+	public static void clickSaveUpdatedEmployeeInfoButton(WebDriver driver) {
+		getSaveUpdatedEmployeeInfoButton(driver).click();
 	}
 	public static WebElement getUploadPictureButton(WebDriver driver) {
 		return driver.findElement(By.xpath(UPLOAD_PICTURE_BUTTON_XPATH));
@@ -34,12 +36,6 @@ public class HumanityEditStaff {
 
 	public static WebElement getNicknameField(WebDriver driver) {
 		return driver.findElement(By.xpath(NICKNAME_FIELD_XPATH));
-	}
-
-	// set image
-	public static void sendImage(WebDriver driver) throws Exception {
-		getUploadPictureButton(driver).sendKeys(IMAGE_PATH);
-		Thread.sleep(3000);
 	}
 
 	public static void clickNicknameField(WebDriver driver) {
@@ -57,19 +53,5 @@ public class HumanityEditStaff {
 	public static void clickEditDetailsButton(WebDriver driver) {
 		getEditDetailsButton(driver).click();
 	}
-
-//	public static void changeNickAndPict(WebDriver driver) {
-//		Actions a = new Actions(driver);
-//		a.moveToElement(HumanityStaff.getEmployeesPossition(driver));
-//		a.click();
-//		a.moveToElement(getEditDetailsButton(driver));
-//		a.click();
-//		a.moveToElement(getNicknameField(driver));
-//		a.sendKeys("Che");
-//		a.moveToElement(getUploadPictureButton(driver));
-//		sendImage(driver);
-//		a.build();
-//		a.perform();
-//	}
 
 }
