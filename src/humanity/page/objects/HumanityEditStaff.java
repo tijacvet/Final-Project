@@ -19,6 +19,7 @@ public class HumanityEditStaff {
 		getUploadPictureButton(driver).sendKeys(IMAGE_PATH);
 		Thread.sleep(3000);
 	}
+	
 	public static WebElement getSaveUpdatedEmployeeInfoButton(WebDriver driver) {
 		return driver.findElement(By.xpath(SAVE_UPDATED_EMPLOYEE_INFO_BUTTON_XPATH));
 	}

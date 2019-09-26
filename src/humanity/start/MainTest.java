@@ -14,13 +14,13 @@ public class MainTest {
 		HumanityLoginTest.testHumanity();
 			
 		//Testing adding new employees
-		//HumanityAddNewEmployeeTest.testHumanity();
+		HumanityAddNewEmployeeTest.testHumanity();
 			
 		//testing if we can change nickname and add picture for an employee
-		//HumanityEditStaffTest.testHumanity();
+		HumanityEditStaffTest.testHumanity();
 			
 		//test Settings page
-		//HumanitySettingsTest.testHumanity();
+		HumanitySettingsTest.testHumanity();
 
 	} catch (Exception ex) {
 		ex.printStackTrace();
