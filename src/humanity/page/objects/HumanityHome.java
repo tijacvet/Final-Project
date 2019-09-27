@@ -18,6 +18,10 @@ public class HumanityHome {
 	private static final String START_PAGE_START_MY_FREE_TRIAL_MANY_BUTTON_XPATH = "//input[@id='free-trial-link-01']";
 	private static final String ABOUT_US_XPATH = "//a[@class='nav-link no-before'][contains(text(),'About us')]";
 	
+	public static WebElement getHumanityHomeUrl(WebDriver driver) {
+		return driver.findElement(By.xpath(HUMANITY_HOME_URL));
+	}
+	
 	public static WebElement getAboutUs(WebDriver driver) {
 		return driver.findElement(By.xpath(ABOUT_US_XPATH));
 	}

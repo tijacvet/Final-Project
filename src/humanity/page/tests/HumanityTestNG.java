@@ -1,5 +1,7 @@
 package humanity.page.tests;
 
+import static org.testng.Assert.assertEquals;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -20,8 +22,9 @@ import humanity.page.objects.HumanitySettings;
 import humanity.page.objects.HumanityStaff;
 
 public class HumanityTestNG {
+	//testing the Login feature with extracted data from Excel sheet
 	@Test
-	public void simplePOILoginTest() throws IOException {
+	public void LoginTestPOI() throws IOException {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
@@ -48,12 +51,13 @@ public class HumanityTestNG {
 
 		HumanityHome.clickLoginButton(driver);
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		assertEquals(driver.getCurrentUrl(), HumanityHome.getHumanityHomeUrl(driver));
 		wbe.close();
 		driver.quit();
 	}
-
+	//on Profile page we check if we can change one's profile picture and nickname, and check if it is all saved
 	@Test
-	public void loginTest() throws Exception {
+	public void profilePageTest() throws Exception {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get(HumanityHome.HUMANITY_HOME_URL);
@@ -84,7 +88,7 @@ public class HumanityTestNG {
 		HumanityMenu.clickStaffButton(driver);
 		SoftAssert sa = new SoftAssert();
 		sa.assertEquals(HumanityEditStaff.getNicknameField(driver), "Comrad");
-
+		System.out.println();
 		Thread.sleep(2000);
 		driver.quit();
 	}
@@ -106,7 +110,7 @@ public class HumanityTestNG {
 		HumanityHome.sendKeysEmailField(driver, "tena@net1mail.com");
 		HumanityHome.sendKeysPasswordField(driver, "Petardoo");
 		HumanityHome.clickLoginButton(driver);
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS); 
 
 		// new code
 		HumanityMenu.clickStaffButton(driver);
